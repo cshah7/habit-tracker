@@ -202,11 +202,6 @@ export default function HomeScreen() {
         keyExtractor={item => item.id}
         style={styles.list}
       />
-      <Link href="/add" asChild>
-        <TouchableOpacity style={styles.addButton}>
-          <Text style={styles.addButtonText}>Add Habit</Text>
-        </TouchableOpacity>
-      </Link>
     </View>
   );
 }

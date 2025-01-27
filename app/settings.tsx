@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Alert, Platform } from 'react-native';
 import { collection, getDocs, query, deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../src/config/firebase';
 import { Habit } from '../src/types/habit';
 import { Ionicons } from '@expo/vector-icons';
-import { router } from 'expo-router';
+import { router, Link } from 'expo-router';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function SettingsScreen() {
   const [habits, setHabits] = useState<Habit[]>([]);
 
-  useEffect(() => {
-    loadHabits();
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      loadHabits();
+    }, [])
+  );
 
   const loadHabits = async () => {
     try {
@@ -132,5 +135,17 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     padding: 5,
+  },
+  addButton: {
+    backgroundColor: '#007AFF',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  addButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '500',
   },
 }); 
