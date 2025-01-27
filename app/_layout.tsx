@@ -32,6 +32,19 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
+        <Stack.Screen 
+          name="index" 
+          options={{ 
+            title: 'My Habits'
+          }} 
+        />
+        <Stack.Screen 
+          name="add" 
+          options={{ 
+            title: 'Add New Habit',
+            presentation: 'modal'
+          }} 
+        />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>

@@ -1,0 +1,13 @@
+export interface Habit {
+  id: string;
+  name: string;
+  createdAt: Date;
+  streak: number;
+}
+
+export interface HabitLog {
+  id: string;
+  habitId: string;
+  date: Date;
+  completed: boolean;
+} 
